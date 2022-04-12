@@ -2720,7 +2720,7 @@ $(TESTOUTPUT):	$(DATADIRO) $(DATADIRO_OUTPUT) $(DATADIRO_OUTPUT_SIGNATURES)
 #
 
 
-tests:			all $(LIB) $(BIN) symlinksdone basic extra dectristests py2cbftests py3cbftests
+tests:			$(LIB) $(BIN) symlinksdone basic extra dectristests py2cbftests py3cbftests
 restore_output:		$(NEWTESTOUTPUT) $(DATADIRO) $(MINICBF_TEST)/minicbf.h5
 	$(SIGNATURE) < adscconverted_flat.cbf > $(DATADIRO)/adscconverted_flat_orig.cbf$(SEXT)
 	$(SIGNATURE) < adscconverted.cbf > $(DATADIRO)/adscconverted_orig.cbf$(SEXT)
