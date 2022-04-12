@@ -306,8 +306,6 @@ NUWEB_DEP=nuweb-1.60
 NUWEB_DEP2=$(BIN)/nuweb
 endif
 
-
-
 CBFLIB_DONT_HAVE_FGETLN ?= yes
 ifeq ($(CBFLIB_DONT_HAVE_FGETLN),yes)
 SRC_FGETLN = $(SRC)/fgetln.c
@@ -315,8 +313,7 @@ else
 SRC_FGETLN =
 endif
 
-
-CBFLIB_DONT_USE_PY2CIFRW ?= no
+CBFLIB_DONT_USE_PY2CIFRW ?= yes
 ifneq ($(CBFLIB_DONT_USE_PY2CIFRW),yes)
 #
 # Definitions to get versions of python2 PyCifRW and PLY
@@ -1505,7 +1502,7 @@ symlinksdone:
 	./.symlinks $(SLFLAGS)
 	touch symlinksdone
 
-install:  baseinstall py2cbfinstall py3cbfinstall  \
+install:  baseinstall py3cbfinstall  \
 	$(HDF5_INSTALL) \
 	$(TIFF_INSTALL) \
 	$(REGEX_INSTALL)

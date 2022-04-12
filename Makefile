@@ -310,7 +310,7 @@ SRC_FGETLN =
 endif
 
 
-CBFLIB_DONT_USE_PY2CIFRW ?= no
+CBFLIB_DONT_USE_PY2CIFRW ?= yes
 ifneq ($(CBFLIB_DONT_USE_PY2CIFRW),yes)
 #
 # Definitions to get versions of python2 PyCifRW and PLY
@@ -1180,7 +1180,7 @@ symlinksdone:
 	./.symlinks $(SLFLAGS)
 	touch symlinksdone
 
-install:  baseinstall py2cbfinstall py3cbfinstall  \
+install:  baseinstall py3cbfinstall  \
 	$(HDF5_INSTALL) \
 	$(TIFF_INSTALL) \
 	$(REGEX_INSTALL)
@@ -2397,8 +2397,8 @@ $(TESTOUTPUT):	$(DATADIRO) $(DATADIRO_OUTPUT) $(DATADIRO_OUTPUT_SIGNATURES)
 # Tests
 #
 
-
 tests:			all $(LIB) $(BIN) symlinksdone basic extra dectristests py2cbftests py3cbftests
+
 restore_output:		$(NEWTESTOUTPUT) $(DATADIRO) $(MINICBF_TEST)/minicbf.h5
 	$(SIGNATURE) < adscconverted_flat.cbf > $(DATADIRO)/adscconverted_flat_orig.cbf$(SEXT)
 	$(SIGNATURE) < adscconverted.cbf > $(DATADIRO)/adscconverted_orig.cbf$(SEXT)
